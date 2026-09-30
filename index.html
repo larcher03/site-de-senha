@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciphor - Codificador & Transformador de Senhas</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonte e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Cabeçalho -->
+    <header class="header">
+      <div class="logo">
+        <i data-lucide="shield-check" class="logo-icon"></i>
+        <h1>Ciphor<span>Lab</span></h1>
+      </div>
+      <p class="subtitle">Transformação, Criptografia e Ofuscação de Senhas em Tempo Real</p>
+    </header>
+
+    <!-- Área Principal / Form -->
+    <main class="main-content">
+      <div class="card">
+        <div class="input-group">
+          <label for="inputPassword">Digite a Senha ou Código Original:</label>
+          <div class="input-wrapper">
+            <i data-lucide="key-round" class="input-icon"></i>
+            <input type="text" id="inputPassword" placeholder="Ex: MinhaSenha123!" autocomplete="off">
+            <button id="btnClear" class="btn-clear" title="Limpar"><i data-lucide="x"></i></button>
+          </div>
+        </div>
+
+        <!-- Opções de Algoritmo -->
+        <div class="options-grid">
+          <div class="option-item">
+            <label for="methodSelect">Método de Transformação:</label>
+            <select id="methodSelect">
+              <option value="cyber">Cyber Safe (Substituição + Hash + Sal)</option>
+              <option value="caesar">Cifra de César (+3 Posições)</option>
+              <option value="base64">Codificação Base64 Complexa</option>
+              <option value="leetspeak">Leet Speak + Formatação Hex</option>
+            </select>
+          </div>
+
+          <div class="option-item">
+            <label for="saltInput">Sal Personalizado (Salt):</label>
+            <input type="text" id="saltInput" value="@2026#Sec" placeholder="Chave de sal...">
+          </div>
+        </div>
+
+        <!-- Botões -->
+        <div class="actions">
+          <button id="btnProcess" class="btn-primary">
+            <i data-lucide="cpu"></i> Codificar & Gerar Passo a Passo
+          </button>
+          <button id="btnRandom" class="btn-secondary">
+            <i data-lucide="shuffle"></i> Gerar Aleatório
+          </button>
+        </div>
+      </div>
+
+      <!-- Resultado Final -->
+      <div id="resultCard" class="card result-card hidden">
+        <div class="result-header">
+          <h3><i data-lucide="lock"></i> Senha / Código Resultante:</h3>
+          <button id="btnCopy" class="btn-copy">
+            <i data-lucide="copy"></i> Copiar
+          </button>
+        </div>
+        <div class="result-box">
+          <span id="finalOutput">---</span>
+        </div>
+      </div>
+
+      <!-- Seção do Passo a Passo -->
+      <div id="stepsCard" class="card steps-card hidden">
+        <div class="steps-header">
+          <h3><i data-lucide="git-commit"></i> Processo de Transformação Passo a Passo</h3>
+          <span id="stepCount" class="badge">0 Etapas</span>
+        </div>
+        
+        <div id="stepsTimeline" class="timeline">
+          <!-- Os passos serão inseridos via JS aqui -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <p>Projeto Open Source para Estudo de Criptografia e Segurança | Licença MIT</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
